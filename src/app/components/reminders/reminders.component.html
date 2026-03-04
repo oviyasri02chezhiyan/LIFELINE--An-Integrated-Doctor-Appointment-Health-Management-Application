@@ -1,0 +1,77 @@
+<div class="reminder-container">
+
+  <button routerLink="/dashboard" class="back-btn">
+    ← Back to Dashboard
+  </button>
+
+  <div class="main-card">
+
+    <h2>⏰ Health Reminder System</h2>
+    <p class="sub-text">Set your medicine timing</p>
+
+    <!-- FORM -->
+    <div class="form-group">
+
+      <input
+        type="text"
+        [ngModel]="patientName()"
+        (ngModelChange)="patientName.set($event)"
+        placeholder="Patient Name">
+
+      <input
+        type="text"
+        [ngModel]="medicineName()"
+        (ngModelChange)="medicineName.set($event)"
+        placeholder="Medicine Name">
+
+      <input
+        type="time"
+        [ngModel]="reminderTime()"
+        (ngModelChange)="reminderTime.set($event)">
+
+      <button
+        (click)="addReminder()"
+        class="add-btn">
+        Set Reminder
+      </button>
+
+    </div>
+
+    <!-- ACTIVE REMINDERS -->
+    @if (reminders().length > 0) {
+
+      <div class="reminders-section">
+
+        <h3>Active Reminders</h3>
+
+        @for (item of reminders(); track item.id) {
+
+          <div class="reminder-item">
+
+            <div>
+              <span class="time-label">
+                {{ item.time }}
+              </span>
+
+              <p>
+                <strong>{{ item.medicineName }}</strong>
+                for {{ item.patientName }}
+              </p>
+            </div>
+
+            <button
+              (click)="deleteReminder(item.id)"
+              class="del-btn">
+              ✕
+            </button>
+
+          </div>
+
+        }
+
+      </div>
+
+    }
+
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<section class="ai-checker">
+
+  <div class="ai-checker__nav">
+    <button routerLink="/dashboard" class="ai-checker__back-btn">
+      ← Back to Dashboard
+    </button>
+  </div>
+
+  <div class="ai-checker__wrapper">
+    <div class="ai-checker__card">
+
+      <header class="ai-checker__header">
+        <span class="ai-checker__icon">🤖</span>
+        <h2 class="ai-checker__title">AI Symptoms Checker</h2>
+      </header>
+
+      <p class="ai-checker__instruction">
+        Type your symptoms (e.g., Fever, Skin allergy, Tooth pain)
+      </p>
+
+      <textarea
+        class="ai-checker__textarea"
+        [ngModel]="userInput()"
+        (ngModelChange)="userInput.set($event)"
+        placeholder="Type your symptoms here..."
+        rows="4">
+      </textarea>
+
+      <button
+        class="ai-checker__analyze-btn"
+        (click)="checkSymptoms()">
+        Analyze Symptoms
+      </button>
+
+      @if (suggestion()) {
+        <div class="ai-checker__result">
+
+          <div class="ai-checker__recommendation">
+            <span class="ai-checker__label">Suggested Specialist:</span>
+            <span class="ai-checker__doctor">
+              {{ suggestion()?.doctor }}
+            </span>
+          </div>
+
+          <p class="ai-checker__message">
+            "{{ suggestion()?.message }}"
+          </p>
+
+          <div class="ai-checker__actions">
+            <button routerLink="/appointment" class="ai-checker__book-btn">
+              Book Now
+            </button>
+
+            <button (click)="clear()" class="ai-checker__reset-btn">
+              Ask Again
+            </button>
+          </div>
+
+        </div>
+      }
+
+    </div>
+  </div>
+
+</section>

@@ -1,0 +1,73 @@
+<div class="emergency-wrapper" [class.alert-mode]="isAlertActive()">
+
+  <!-- Back Button -->
+  <button
+    routerLink="/dashboard"
+    class="back-btn"
+    *ngIf="!isAlertActive()">
+    ← Back to Dashboard
+  </button>
+
+  <!-- Initial View -->
+  <div *ngIf="!isAlertActive()" class="initial-view">
+
+    <div class="pulse-container" (click)="triggerEmergency()">
+      <div class="pulse-ring"></div>
+      <button class="sos-btn">SOS</button>
+    </div>
+
+    <h2>Emergency Quick Access</h2>
+    <p class="instruction-text">
+      Click the button for immediate medical assistance
+    </p>
+
+  </div>
+
+  <!-- Active Alert View -->
+  <div *ngIf="isAlertActive()" class="active-alert">
+
+    <div class="siren-icon">🚨</div>
+    <h1 class="alert-title">EMERGENCY ALERT ACTIVE</h1>
+
+    <div class="doctor-assignment">
+
+      <ng-container *ngIf="assignedDoctor(); else loading">
+
+        <div class="doc-card">
+          <h3>Doctor Assigned</h3>
+
+          <p class="doc-name">
+            {{ assignedDoctor()?.name }}
+          </p>
+
+          <p class="doc-dept">
+            {{ assignedDoctor()?.dept}}
+          </p>
+
+          <div class="contact-box">
+            📞 {{ assignedDoctor()?.phone }}
+          </div>
+
+          <p class="status-text">
+            Ambulance is on the way...
+          </p>
+        </div>
+
+      </ng-container>
+
+      <ng-template #loading>
+        <p>Assigning nearest doctor...</p>
+        <div class="spinner"></div>
+      </ng-template>
+
+    </div>
+
+    <button
+      class="cancel-btn"
+      (click)="cancelEmergency()">
+      Cancel Emergency
+    </button>
+
+  </div>
+
+</div>

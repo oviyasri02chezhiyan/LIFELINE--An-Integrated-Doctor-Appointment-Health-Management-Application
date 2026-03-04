@@ -1,0 +1,143 @@
+.appointment {
+  background: #99d2e7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.appointment__nav {
+  display: flex;
+}
+
+.appointment__back-btn {
+  background: none;
+  border: none;
+  color: #004a99;
+  font-weight: 900;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 10px;
+  transition: 0.3s ease;
+}
+
+.appointment__back-btn:hover {
+  transform: scale(1.1);
+  color: #000;
+}
+
+.appointment__wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.appointment__card,
+.appointment__success-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.appointment__title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.appointment__subtitle {
+  font-size: 1.3rem;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.appointment__field {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.appointment__label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.appointment__input {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  transition: 0.3s ease;
+}
+
+.appointment__input:focus {
+  border-color: #0072ff;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 114, 255, 0.15);
+}
+
+
+.appointment__confirm-btn {
+  width: 100%;
+  padding: 16px;
+  background: #0072ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.appointment__confirm-btn:hover {
+  background: #0056b3;
+  transform: translateY(-3px);
+}
+
+.appointment__new-btn {
+  margin-top: 20px;
+  background: #6c757d;
+  color: #ffffff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: 0.3s ease;
+}
+
+.appointment__new-btn:hover {
+  background: #5a6268;
+}
+
+.appointment__icon {
+  font-size: 60px;
+  margin-bottom: 15px;
+}
+
+.appointment__details p {
+  font-size: 1.2rem;
+  margin: 12px 0;
+}
+
+.appointment__time-badge {
+  background: #e3f2fd;
+  color: #0072ff;
+  padding: 6px 15px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.appointment__divider {
+  margin: 15px 0;
+}

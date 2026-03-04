@@ -1,0 +1,89 @@
+<section class="appointment">
+
+  <div class="appointment__nav">
+    <button routerLink="/dashboard" class="appointment__back-btn">
+      ← Back to Dashboard
+    </button>
+  </div>
+
+  <div class="appointment__wrapper">
+
+    @if (!bookedDetails) {
+      <div class="appointment__card">
+        <h2 class="appointment__title">
+          Book Your Appointment
+        </h2>
+
+        <p class="appointment__subtitle">
+          Please enter patient details to get your slot.
+        </p>
+
+        <div class="appointment__field">
+          <label class="appointment__label">Patient Name</label>
+          <input
+            type="text"
+            [(ngModel)]="patientName"
+            placeholder="Enter full name"
+            class="appointment__input"
+          />
+        </div>
+
+        <div class="appointment__field">
+          <label class="appointment__label">Age</label>
+          <input
+            type="number"
+            [(ngModel)]="patientAge"
+            placeholder="Enter age"
+            class="appointment__input"
+          />
+        </div>
+
+        <button
+          (click)="confirmBooking()"
+          class="appointment__confirm-btn"
+        >
+          Confirm Booking
+        </button>
+      </div>
+    }
+
+    @if (bookedDetails) {
+      <div class="appointment__success-card">
+        <div class="appointment__icon">✅</div>
+
+        <h3 class="appointment__success-title">
+          Successfully Booked!
+        </h3>
+
+        <hr class="appointment__divider">
+
+        <div class="appointment__details">
+          <p>
+            <strong>Patient:</strong>
+            {{ bookedDetails.name }} (Age: {{ bookedDetails.age }})
+          </p>
+
+          <p>
+            <strong>Doctor:</strong>
+            {{ bookedDetails.doctor }}
+          </p>
+
+          <p>
+            <strong>Your Time Slot:</strong>
+            <span class="appointment__time-badge">
+              {{ bookedDetails.time }}
+            </span>
+          </p>
+        </div>
+
+        <button
+          (click)="resetForm()"
+          class="appointment__new-btn"
+        >
+          Book Another
+        </button>
+      </div>
+    }
+
+  </div>
+</section>

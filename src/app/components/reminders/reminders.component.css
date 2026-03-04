@@ -1,0 +1,107 @@
+.reminder-container {
+  min-height: 100vh;
+  background: #99d2e7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+
+.main-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 700px;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.main-card h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.sub-text {
+  font-size: 1rem;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input {
+  padding: 12px;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.add-btn {
+  padding: 12px;
+  background: #ff9800;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-btn:hover {
+  background: #e68900;
+}
+
+
+.reminders-section {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.reminder-item {
+  background: #fff8e1;
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.time-label {
+  background: #ff9800;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin-right: 8px;
+}
+
+.del-btn {
+  background: red;
+  color: white;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+}

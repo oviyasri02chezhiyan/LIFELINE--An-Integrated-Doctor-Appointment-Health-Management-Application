@@ -1,0 +1,109 @@
+<div class="p-container">
+
+  <button routerLink="/dashboard" class="back-btn no-print">
+    ← Back to Dashboard
+  </button>
+
+  <div class="card-wrapper">
+
+    <!-- FORM SECTION -->
+    <div class="form-card" *ngIf="!prescriptionData()">
+      <h2>Generate Digital Prescription</h2>
+
+      <input
+        type="text"
+        [ngModel]="patientName()"
+        (ngModelChange)="patientName.set($event)"
+        placeholder="Patient Name"
+        class="big-input">
+
+      <input
+        type="number"
+        [ngModel]="age()"
+        (ngModelChange)="age.set($event)"
+        placeholder="Age"
+        class="big-input">
+
+      <input
+        type="text"
+        [ngModel]="diagnosis()"
+        (ngModelChange)="diagnosis.set($event)"
+        placeholder="Diagnosis"
+        class="big-input">
+
+      <textarea
+        rows="4"
+        [ngModel]="medicinesInput()"
+        (ngModelChange)="medicinesInput.set($event)"
+        placeholder="Medicines (comma separated)"
+        class="big-textarea">
+      </textarea>
+
+      <button (click)="generatePrescription()" class="gen-btn">
+        Generate
+      </button>
+    </div>
+
+    <!-- PRESCRIPTION OUTPUT -->
+    @if (prescriptionData(); as data) {
+
+      <div class="prescription-pad">
+
+        <div class="pad-header">
+          <div>
+            <h3>SMART HEALTH CLINIC</h3>
+            <p><strong>{{ data.doctor }}</strong></p>
+            <p>Reg No: 123456789</p>
+          </div>
+
+          <div>
+            <p>ID: {{ data.id }}</p>
+            <p>Date: {{ data.date }}</p>
+          </div>
+        </div>
+
+        <hr>
+
+        <p>
+          <strong>Name:</strong> {{ data.patientName }}
+          |
+          <strong>Age:</strong> {{ data.age }}
+        </p>
+
+        <p>
+          <strong>Diagnosis:</strong> {{ data.diagnosis }}
+        </p>
+
+        <span class="rx-symbol">℞</span>
+
+        <ul class="med-list">
+          @for (med of data.medicines; track med) {
+            <li>{{ med }}</li>
+          }
+        </ul>
+
+        <div class="pad-footer">
+
+          <p>
+            Digital Signature:
+            <i>SmartHealth Verified</i>
+          </p>
+
+          <div class="actions no-print">
+            <button (click)="printPrescription()" class="print-btn">
+              Print
+            </button>
+
+            <button (click)="resetForm()" class="reset-btn">
+              New
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    }
+
+  </div>
+</div>

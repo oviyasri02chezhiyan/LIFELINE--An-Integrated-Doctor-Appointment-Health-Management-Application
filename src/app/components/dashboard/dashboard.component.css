@@ -1,0 +1,95 @@
+.dashboard {
+  padding: 40px 20px;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  background-color: #99d2e7;
+}
+
+.dashboard__header {
+  margin-bottom: 50px;
+}
+
+.dashboard__title {
+  color: #333;
+  font-size: 3rem;
+  margin-bottom: 5px;
+  font-weight: 800;
+}
+
+.dashboard__subtitle {
+  color: #555;
+  font-size: 1.8rem;
+}
+
+.dashboard__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  max-width: 98%;
+  margin: 0 auto;
+  padding: 40px 10px;
+}
+
+.dashboard__card {
+  width: 260px;
+  height: 260px;
+  background: #ffffff;
+  border-radius: 30px;
+  border-bottom: 15px solid transparent;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  padding: 20px;
+}
+.dashboard__card:hover:not(.dashboard__card--disabled) {
+  transform: translateY(-15px);
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.15);
+}
+.dashboard__card--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #f0f0f0;
+}
+
+.dashboard__icon {
+  font-size: 5rem;
+  margin-bottom: 15px;
+}
+
+.dashboard__card-title {
+  font-size: 1.4rem;
+  color: #333;
+  margin: 0;
+  font-weight: 700;
+}
+
+.dashboard__coming-soon {
+  font-size: 0.9rem;
+  color: #ff5252;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.dashboard__logout-btn {
+  margin-top: 60px;
+  background: #ff5252;
+  color: #ffffff;
+  border: none;
+  padding: 18px 50px;
+  border-radius: 15px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.dashboard__logout-btn:hover {
+  transform: scale(1.08);
+  background: #d32f2f;
+}
